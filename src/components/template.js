@@ -75,15 +75,6 @@ const CircuitDiagram = ({ circuitDiagram, circuitDescription }) => (
 )
 
 const Template = ({ data }) => {
-    console.log('data', data);
-    const item = data.allContentfulRecipe.nodes[0];
-
-    const title = item.title ? item.title : null;
-    const description = item.description ? documentToReactComponents(item.description.json, options) : null;
-    const circuitDescription = item.circuitDescription ? documentToReactComponents(item.circuitDescription.json, options) : null;
-    const circuitDiagram = item.circuitDiagram ? item.circuitDiagram.fluid.src : null;
-    const code = item.code ? item.code.childMarkdownRemark.rawMarkdownBody : null;
-    const mediaArray = item.recipePhotos ? item.recipePhotos : [];
 
   const options = {
     renderMark: {
@@ -100,6 +91,15 @@ const Template = ({ data }) => {
       },
     },
   };
+  
+    const item = data.allContentfulRecipe.nodes[0];
+
+    const title = item.title ? item.title : null;
+    const description = item.description ? documentToReactComponents(item.description.json, options) : null;
+    const circuitDescription = item.circuitDescription ? documentToReactComponents(item.circuitDescription.json, options) : null;
+    const circuitDiagram = item.circuitDiagram ? item.circuitDiagram.fluid.src : null;
+    const code = item.code ? item.code.childMarkdownRemark.rawMarkdownBody : null;
+    const mediaArray = item.recipePhotos ? item.recipePhotos : [];
 
   const tabs = [
         {
