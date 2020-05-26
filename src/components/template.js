@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { graphql, Link, useStaticQuery } from 'gatsby';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
-// import Image from 'gatsby-image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 import { TabNavigation } from '../components/tabs';
@@ -34,35 +33,33 @@ const Image = styled.img`
 
 const Description = ({ description, media }) => (
     <>
-    <div>{description}</div>
-    <h2> Media </h2>
-    {media.map(item => {
-        console.log('ITEM IS', item);
-        return item.file.contentType.includes('video') ?
-            <>
-                <Video controls width="700" height="400">
-                    <source src={item.file.url} type="video/mp4" />
-                    <source src={item.file.url} type="video/ogg" />
-                    Your browser does not support the video tag.
-                </Video>
-                <MediaDescription> {item.description} </MediaDescription>
-            </>
-            :
-            <>
-                <Image src={item.file.url} />
-                <MediaDescription> {item.description} </MediaDescription>
-            </>
-    }
-)}
-</>
-)
+        <div>{description}</div>
+        <h2> Media </h2>
+        {media.map(item => {
+            console.log('ITEM IS', item);
+            return item.file.contentType.includes('video') ?
+                <>
+                    <Video controls width="700" height="400">
+                        <source src={item.file.url} type="video/mp4" />
+                        <source src={item.file.url} type="video/ogg" />
+                        Your browser does not support the video tag.
+                    </Video>
+                    <MediaDescription> {item.description} </MediaDescription>
+                </>
+                :
+                <>
+                    <Image src={item.file.url} />
+                    <MediaDescription> {item.description} </MediaDescription>
+                </>
+        })}
+    </>
+);
 
 
 const Code = ({ code }) => {
     useEffect(() => {
-        console.log('calling highlight');
         Prism.highlightAll()
-    }, []);
+    });
     return(
         <pre><code className="language-python">{code}</code></pre>
     );
@@ -72,7 +69,7 @@ const CircuitDiagram = ({ circuitDiagram, circuitDescription }) => (
         <img src={circuitDiagram} />
         <div> {circuitDescription} </div>
     </>
-)
+);
 
 const Template = ({ data }) => {
 
@@ -91,7 +88,7 @@ const Template = ({ data }) => {
       },
     },
   };
-  
+
     const item = data.allContentfulRecipe.nodes[0];
 
     const title = item.title ? item.title : null;

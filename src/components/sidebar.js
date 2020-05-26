@@ -20,49 +20,40 @@ const Aside = styled.aside`
 `;
 
 const SidebarHeader = styled.div`
-    font-size: 14px;
-    line-height: 1.4;
-    box-sizing: border-box;
     position: relative;
     height: 157.5px;
-    margin-bottom: 8px;
-    background-color: #eceff1;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-image: url(https://2.bp.blogspot.com/-2RewSLZUzRg/U-9o6SD4M6I/AAAAAAAADIE/voax99AbRx0/s1600/14%2B-%2B1%2B%281%29.jpg);
-`;
-
-const SidebarImageContainer = styled.div`
-    font-size: 14px;
-    box-sizing: border-box;
+    color: white;
+    background-color: #15193B;
+    margin-bottom: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 const SidebarImage = styled.img`
+    flex: 1;
     font-size: 14px;
     line-height: 1.4;
     box-sizing: border-box;
     border-style: none;
-    width: 54px;
-    height: 54px;
-    margin: 16px;
+    max-width: 65px;
+    max-height: 65px;
+    margin-left: 16px;
+    margin-right: 16px;
     border-radius: 50%;
+    align-self: center;
+    margin-bottom: 0;
 `;
 
 const SidebarName = styled.div`
-    font-size: 14px;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    display: block;
-    height: 48px;
+    flex: 1;
     line-height: 48px;
-    padding: 0 56px 0 16px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    display: inline;
+    font-size: 16px;
+    align-self: center;
 `;
 
 const SidebarUnorderedList = styled.ul`
@@ -157,10 +148,8 @@ export const Sidebar = ({ className }) => {
     return (
     <Aside>
         <SidebarHeader>
-            <SidebarImageContainer>
                 <SidebarImage src={profilePhoto} alt="photo of Ana-Stefania Gheorghe with her golden retriever dog" />
                 <SidebarName> Ana-Stefania Gheorghe</SidebarName>
-            </SidebarImageContainer>
         </SidebarHeader>
         <SidebarUnorderedList>
             <SidebarListItem>

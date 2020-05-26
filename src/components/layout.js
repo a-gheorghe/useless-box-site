@@ -16,9 +16,6 @@ const Page = styled.div`
 export const Layout = ({ children }) => {
     return(
         <>
-            <header>
-                A header will go here with contact info
-            </header>
             <Page>
                 <Sidebar />
                 <Content>{children}</Content>
